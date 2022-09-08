@@ -18,22 +18,94 @@
 <body>
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
-      <a class="navbar-brand ms-3" href="#">
+      <a class="navbar-brand ms-3  me-auto" href="#">
         <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
           loading="lazy">
         <span class="ms-2">rain-money</span>
       </a>
+      <button class="btn btn-primary m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#addSource"
+        aria-controls="offcanvasExample">
+        Add Source Item
+      </button>
+      <button class="btn btn-primary m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#addBudget"
+        aria-controls="offcanvasExample">
+        Add Budget Item
+      </button>
     </nav>
   </header>
   <main>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div id="app"></div>
+      <div class="p-3">
+        <h1>Sources</h1>
+        <div class="row p-3" id="sources">
         </div>
       </div>
+      <div class="p-3">
+        <h1>Budget Items</h1>
+        <div class="row p-3" id="budgets">
+        </div>
+      </div>
+      <!-- Insert Budget template here -->
+
+
+      <!-- <div class="col-md-2 col-sm-4 mt-3 p-2 border bg-secondary">
+          <div class="d-flex justify-content-between">
+            <h3>Name:</h3>
+            <h3 class="text-success">$</h3>
+          </div>
+          <div>
+            <p>Purchased <input type="checkbox"></p>
+          </div>
+        </div> -->
     </div>
   </main>
+
+  <!-- Sources Form -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="addSource" aria-labelledby="addSourceLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="addSourceLabel">Add Source Item</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <form onsubmit="app.sourcesController.createSources()">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="income" placeholder="Name">
+          <label for="income">Income Source</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="number" step="0.01" class="form-control" name="amount" placeholder="Amount">
+          <label for="amount">Amount</label>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="btn" type="reset">Cancel</button>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- budget form -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="addBudget" aria-labelledby="addBudgetLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="addBudgetLabel">Add Budget Item</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <form onsubmit="app.budgetsController.createBudget()">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="name" placeholder="Name">
+          <label for="name">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="number" step="0.01" class="form-control" name="price" placeholder="Price">
+          <label for="price">Price</label>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="btn" type="reset">Cancel</button>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
   <footer class="bg-dark text-light">
     <div class="text-center no-select">
       <p><small>Made with 💖 by CodeWorks</small></p>
