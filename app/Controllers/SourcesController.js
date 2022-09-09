@@ -9,13 +9,20 @@ function _drawSources() {
   appState.sources.forEach(source => template += source.SourceTemplate)
   setHTML('sources', template)
 }
-
+export function _drawTotalSources() {
+  let total = 0
+  appState.sources.forEach(source => total += source.amount)
+  setHTML('totalSources', total)
+  return total
+}
 
 export class SourcesController {
 
   constructor() {
     _drawSources()
+    _drawTotalSources()
     appState.on('sources', _drawSources)
+    appState.on('sources', _drawTotalSources)
 
     // console.log('hello from sources controller');
   }

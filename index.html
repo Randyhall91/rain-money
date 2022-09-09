@@ -15,7 +15,7 @@
   <title>rain-money</title>
 </head>
 
-<body>
+<body class="bg-secondary">
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
       <a class="navbar-brand ms-3  me-auto" href="#">
@@ -23,6 +23,19 @@
           loading="lazy">
         <span class="ms-2">rain-money</span>
       </a>
+      <div class="p-2 bg-secondary text-dark rounded mx-3">
+        <h4>Total Sources</h4>
+        <h5 id="totalSources"></h5>
+      </div>
+      <div class="p-2 bg-secondary text-dark rounded mx-3">
+        <h4>Total Budget</h4>
+        <h5 id="totalBudget"></h5>
+      </div>
+      <div class="p-2 bg-secondary text-dark rounded mx-3">
+        <h4>Remainig Money</h4>
+        <h5 id="totalMoney"></h5>
+      </div>
+
       <button class="btn btn-primary m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#addSource"
         aria-controls="offcanvasExample">
         Add Source Item
@@ -35,28 +48,22 @@
   </header>
   <main>
     <div class="container-fluid">
-      <div class="p-3">
-        <h1>Sources</h1>
-        <div class="row p-3" id="sources">
+      <div class="row p-3 d-flex flex-">
+        <div class="col-6">
+
+          <h1>Sources</h1>
+          <div class="row" id="sources"></div>
+          <!-- Insert Source Items here -->
+        </div>
+        <div class="col-6">
+          <h1>Budget Items</h1>
+          <div class="row" id="budgets"></div>
+          <!-- Insert Budget template here -->
         </div>
       </div>
-      <div class="p-3">
-        <h1>Budget Items</h1>
-        <div class="row p-3" id="budgets">
-        </div>
-      </div>
-      <!-- Insert Budget template here -->
 
 
-      <!-- <div class="col-md-2 col-sm-4 mt-3 p-2 border bg-secondary">
-          <div class="d-flex justify-content-between">
-            <h3>Name:</h3>
-            <h3 class="text-success">$</h3>
-          </div>
-          <div>
-            <p>Purchased <input type="checkbox"></p>
-          </div>
-        </div> -->
+
     </div>
   </main>
 
